@@ -13,7 +13,8 @@ import 'package:flutter_todo/views/todos.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      builder: (context) => AuthProvider(),
+      create: (_) => AuthProvider(),
+      //builder: (context) => AuthProvider(),
       child: MaterialApp(
         initialRoute: '/',
         routes: {
@@ -42,7 +43,8 @@ class Router extends StatelessWidget {
             return LogIn();
           case Status.Authenticated:
             return ChangeNotifierProvider(
-              builder: (context) => TodoProvider(authProvider),
+              create: (_) => TodoProvider(authProvider),
+              //builder: (context) => TodoProvider(authProvider),
               child: Todos(),
             );
           default:
